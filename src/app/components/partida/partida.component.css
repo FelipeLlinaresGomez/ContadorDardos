@@ -1,0 +1,88 @@
+.player-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 90px;
+}
+
+.side-bar {
+  width: 10px;
+  height: 100%;
+}
+
+.nombre-puntacion {
+  width: 120px;
+  padding: 10px;
+  text-align: center;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid black; /* Línea vertical */
+}
+
+.puntaje {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.nombre {
+  font-size: 18px;
+}
+
+.puntuaciones-container {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 2px solid black; /* Línea vertical */
+  flex: 1
+}
+
+.puntuaciones {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.puntuacion {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  border-right: 1px solid black;
+}
+
+.puntuacion:last-child {
+  border-right: none;
+}
+
+.puntuacion-extra {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  border-top: 1px solid black;
+  padding: 5px;
+}
+
+.promedio {
+  width: 80px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.franja {
+  background-color: #cac3bd; /* Color de fondo (puedes cambiarlo) */
+  color: white; /* Color del texto */
+  text-align: center;
+  padding: 10px; /* Espaciado */
+  font-size: 18px; /* Tamaño del texto */
+  font-weight: bold;
+}

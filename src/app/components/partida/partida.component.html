@@ -1,0 +1,43 @@
+<app-navbar-partida [titulo]="titulo" [descripcion]="descripcion"></app-navbar-partida>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+
+      <div *ngFor="let jugador of jugadores; let i = index" class="player-row d-flex align-items-center mb-3">
+        <!-- Barra lateral de color -->
+        <div class="side-bar" [ngStyle]="{'background-color': jugador.seleccionado ? '#7b1212' : '#b3b3b3'}"></div>
+
+        <!-- Puntuación Restante y Nombre -->
+        <div class="nombre-puntacion bordered text-center">
+          <span class="puntaje">{{ jugador.puntuacionRestante }}</span>
+          <span class="nombre">{{ jugador.nombre }}</span>
+        </div>
+
+        <!-- Contenedor de puntuaciones con campo extra -->
+        <div class="puntuaciones-container bordered">
+          <div class="puntuaciones">
+            <span class="puntuacion">{{ jugador.puntuaciones[0] }}</span>
+            <span class="puntuacion">{{ jugador.puntuaciones[1] }}</span>
+            <span class="puntuacion">{{ jugador.puntuaciones[2] }}</span>
+          </div>
+          <div class="puntuacion-extra">{{ jugador.puntuacionRondaActual }}</div> <!-- Campo extra debajo -->
+        </div>
+
+        <!-- Promedio con altura completa -->
+        <div class="promedio bordered">
+          <span>{{ jugador.puntuacionMedia }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="franja mb-4">
+    <span>Ronda {{ronda}}, {{jugadorArriba}} está arriba</span>
+  </div>
+</div>
+
+<app-botonera [cricket]="cricket" (puntuar)="puntuar($event)" (volver)="volver($event)"></app-botonera>
+
+<app-pop-up [visible]="popupVisible" [titulo]="popUpTexto" [crossVisible]="popupVisible" (closePopUp)="closePopUp($event)"></app-pop-up>
+<app-pop-up [visible]="teHasPasdoVisible" [titulo]="popUpTeHasPasadoTexto" (closePopUp)="closePopUpTeHasPasado($event)"></app-pop-up>

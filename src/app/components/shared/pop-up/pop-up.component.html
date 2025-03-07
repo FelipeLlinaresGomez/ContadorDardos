@@ -1,0 +1,9 @@
+<!-- Overlay card for loading and success messages -->
+<div *ngIf="visible" class="overlay">
+    <div class="card-popup">
+        <button *ngIf="crossVisible" (click)="closeOverlay()" class="close-btn">&times;</button>
+        <div class="card-body-popup text-center">
+            <p>{{titulo}}</p>
+        </div>
+    </div>
+  </div>

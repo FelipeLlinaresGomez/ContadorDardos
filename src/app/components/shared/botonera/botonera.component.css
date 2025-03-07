@@ -1,0 +1,43 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 5 columnas de igual ancho */
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  
+  .grid-item {
+    background-color: #aed8f5;
+    border: none;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .grid-item:disabled {
+    background-color: gray; /* Change background color */
+    cursor: not-allowed; /* Show "not allowed" cursor */
+    opacity: 0.6; /* Reduce opacity to indicate disabled state */
+}
+  
+  .grid-container .grid-item:nth-child(29) { grid-column: span 2; } /* Volver ocupa 2 columna */
+  
+  .double { background-color: #f5c246; color: white; grid-column: span 2;}
+  .triple { background-color: #f59846; color: white; grid-column: span 2;}
+  .back { background-color: red; color: white; grid-column: span 2;}
+
+  .double.active { 
+    background-color: #d4a537; /* Darker yellow */
+    transform: scale(0.95);
+}
+
+.triple.active { 
+    background-color: #d47a37; /* Darker orange */
+    transform: scale(0.95);
+}

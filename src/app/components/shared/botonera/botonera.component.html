@@ -1,0 +1,11 @@
+<div class="container grid-container">
+    <!-- Botones del 1 al 25 -->
+    <button *ngFor="let num of numbers" class="grid-item" (click)="onNumberClick(num)" [disabled]="num === 25 && tripleSeleccionado">
+        {{ num }}
+    </button>
+    
+    <button class="grid-item" (click)="onNumberClick(0)">0</button>
+    <button class="grid-item double" [class.active]="dobleSeleccionado"  (click)="onDouble()">DOBLE</button>
+    <button class="grid-item triple" [class.active]="tripleSeleccionado"  (click)="onTriple()">TRIPLE</button>
+    <button class="grid-item back" (click)="onBack()">VOLVER</button>
+</div>

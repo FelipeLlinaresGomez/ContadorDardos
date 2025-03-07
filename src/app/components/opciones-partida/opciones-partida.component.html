@@ -1,0 +1,59 @@
+<div class="container mt-4">
+    <div class="row">
+      
+      <!-- Mitad Izquierda: Lista de Jugadores -->
+      <div class="col-md-6">
+        <h3>Lista de Jugadores</h3>
+        <ul class="list-group">
+          <li *ngFor="let jugador of jugadores; let i = index" class="list-group-item d-flex align-items-center">
+            <input type="text" [(ngModel)]="jugador.nombre" placeholder="{{jugador.placeholder}}" class="form-control">
+            <button *ngIf="i > 0" class="btn" (click)="eliminarJugador(i)">❌</button>
+          </li>
+        </ul>
+        <button *ngIf="jugadores.length < 6" class="btn btn-success mt-2" (click)="agregarJugador()">+</button>
+      </div>
+  
+      <!-- Mitad Derecha: Configuración -->
+      <div class="col-md-6">
+        <h3>Configuración</h3>
+  
+        <div class="mb-3">
+          <label for="tipoJuego" class="form-label">Tipo de Juego</label>
+          <select id="tipoJuego" class="form-select" [(ngModel)]="juegoSeleccionado">
+            <option *ngFor="let tipo of tiposJuego">{{ tipo }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3" *ngIf="juegoSeleccionado === 'X01'">
+            <label for="otraOpcion" class="form-label">Puntos de partida</label>
+            <select id="otraOpcion" class="form-select" [(ngModel)]="puntoPartidaSeleccionado">
+              <option *ngFor="let otra of puntosPartida">{{ otra }}</option>
+            </select>
+          </div>
+  
+        <div class="mb-3">
+          <label for="numeroRondas" class="form-label">Número de Rondas</label>
+          <select id="numeroRondas" class="form-select" [(ngModel)]="rondasSeleccionadas">
+            <option *ngFor="let ronda of rondas">{{ ronda }}</option>
+          </select>
+        </div>
+  
+        <div class="mb-3" *ngIf="juegoSeleccionado === 'X01'">
+          <label for="tipoFinal" class="form-label">Tipo de Final</label>
+          <select id="tipoFinal" class="form-select" [(ngModel)]="finalSeleccionado">
+            <option *ngFor="let final of tiposFinal">{{ final }}</option>
+          </select>
+        </div>
+
+      </div>
+  
+    </div>
+
+    <!-- Fila para el botón centrado debajo de las dos partes -->
+    <div class="row justify-content-center mt-4">
+        <button class="btn btn-success" (click)="empezarPartida()">Iniciar Juego</button>
+    </div>
+
+</div>
+
+<app-pop-up [visible]="popupFuncionalidadPruebasVisible" [titulo]="popUpTexto" [crossVisible]="popupFuncionalidadPruebasVisible" (closePopUp)="closePopUp($event)"></app-pop-up>
